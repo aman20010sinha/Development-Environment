@@ -1,0 +1,25 @@
+Create a Ubuntu VM
+sudo virt-install --name ubuntudigeshdev \
+--memory 16000 --vcpus=16 \
+--os-type=Linux --os-variant=ubuntu20.04 \
+--cdrom=/media/data/images/ubuntu-20.04.iso \
+--disk size=128 \
+--network bridge=br0,model=virtio \
+--network network=default,model=virtio \
+--console pty,target_type=serial --graphics=vnc -v
+
+Create a Fedora VM
+sudo virt-install --name fedoraAman \
+--memory 16000 --vcpus=16 \
+--os-type=Linux --os-variant=centos7.0 \
+--location=/media/data/images/Fedora-Server-dvd-x86_64-33-1.2.iso \
+--disk size=128 \
+--network bridge=br0,model=virtio \
+--network network=default,model=virtio \
+--console pty,target_type=serial --graphics=vnc -v
+
+Proxy setting in /etc/apt/apt.conf.d/proxy.conf
+Acquire {
+  HTTP::proxy "http://proxy-chain.intel.com:911";
+  HTTPS::proxy "http://proxy-chain.intel.com:912";
+}
