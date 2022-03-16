@@ -11,7 +11,7 @@ then
 
         sudo yum update -y
 
-        sudo yum install net-tools vim -y
+        sudo yum install net-tools vim git libconfig -y
 
         sudo yum install clang gcc meson libtool -y
 
